@@ -124,7 +124,7 @@ fi
 ## WORDPRESS
 
 printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Wordpress: \e[0m"
-check1=$(curl -s -i "https://$username.wordpress.com" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | grep -o 'Do you want to register' ; echo $?)
+check1=$(curl -s -i "https://$username.wordpress.com" -H "Accept-Language: en" -L --user-agent '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:0.9.3) Gecko/20010801"' | sed 's/&nbsp;/ /g; s/&#8217;/'"'"'/g;' | grep -o "doesn't exist" ; echo $?)
 
 if [[ $check1 == *'0'* ]] ; then
 printf "\e[1;93mNot Found!\e[0m\n"
