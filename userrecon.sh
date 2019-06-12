@@ -490,7 +490,7 @@ fi
 ## KeyBase
 
 printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Keybase: \e[0m"
-check1=$(curl -s -i "https://keybase.io/$username" -H "Accept-Language: en" -L | grep -o '404 Not Found' ; echo $?)
+check1=$(curl -s -i "https://keybase.io/$username" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
 
 if [[ $check1 == *'0'* ]] ; then
 printf "\e[1;93mNot Found!\e[0m\n"
