@@ -331,20 +331,6 @@ printf "\e[1;92m Found!\e[0m https://slideshare.net/%s\n" $username
 printf "https://slideshare.net/%s\n" $username >> $username.txt
 fi
 
-## Fotolog
-
-printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Fotolog: \e[0m"
-check1=$(curl -s -i "https://fotolog.com/$username" -H "Accept-Language: en" -L | grep -o 'HTTP/2 404' ; echo $?)
-
-if [[ $check1 == *'0'* ]] ; then
-printf "\e[1;93mNot Found!\e[0m\n"
-elif [[ $check1 == *'1'* ]]; then
-
-printf "\e[1;92m Found!\e[0m https://fotolog.com/%s\n" $username
-printf "https://fotolog.com/%s\n" $username >> $username.txt
-fi
-
-
 ## Spotify
 
 printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Spotify: \e[0m"
